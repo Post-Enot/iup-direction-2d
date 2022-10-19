@@ -1,0 +1,12 @@
+{
+  "name": "com.iup.direction-2d",
+  "version": "1.0.0",
+  "displayName": "Direction 2D",
+  "description": "Перечисляемый тип, отражающий направление в 2D-пространстве, и утилиты для взаимодействия с ним.",
+  "author": {
+    "name": "PostEnot",
+    "email": "ve.vyshegorodsky.cold@gmail.com",
+    "url": "https://t.me/ProcyonNihil"
+  },
+  "type": "library"
+}
