@@ -1,19 +1,12 @@
 using System;
 using UnityEngine;
 
-namespace Direction2D
+namespace IUP_Toolkits.Direction2D
 {
     public static class DirectionExtension
     {
-        private const string _meaninglessValue = "Значение не имеет смысла с точки зрения направления в пространстве.";
+        private const string _meaninglessValue = "Р—РЅР°С‡РµРЅРёРµ РЅРµ РёРјРµРµС‚ СЃРјС‹СЃР»Р°.";
 
-        /// <summary>
-        /// Преобразует значение направления к типу Vector2,
-        /// если оно имеет смысл с точки зрения направления в пространстве.
-        /// </summary>
-        /// <returns>Возвращает преобразованное значение типа Vector2, если оно имеет смысл с точки зрения
-        /// направления в пространстве; иначе вызывает InvalidCastException.</returns>
-        /// <exception cref="InvalidCastException"></exception>
         public static Vector2 ToVector2(this Direction direction)
         {
             return direction switch
@@ -31,13 +24,6 @@ namespace Direction2D
             };
         }
 
-        /// <summary>
-        /// Преобразует значение направления к типу Vector2Int,
-        /// если оно имеет смысл с точки зрения направления в пространстве.
-        /// </summary>
-        /// <returns>Возвращает преобразованное значение типа Vector2Int, если оно имеет смысл с точки зрения
-        /// направления в пространстве; иначе вызывает InvalidCastException.</returns>
-        /// <exception cref="InvalidCastException"></exception>
         public static Vector2Int ToVector2Int(this Direction direction)
         {
             return direction switch
@@ -55,13 +41,6 @@ namespace Direction2D
             };
         }
 
-        /// <summary>
-        /// Преобразует значение направления к типу Vector3,
-        /// если оно имеет смысл с точки зрения направления в пространстве.
-        /// </summary>
-        /// <returns>Возвращает преобразованное значение типа Vector3, если оно имеет смысл с точки зрения
-        /// направления в пространстве; иначе вызывает InvalidCastException.</returns>
-        /// <exception cref="InvalidCastException"></exception>
         public static Vector3 ToVector3(this Direction direction)
         {
             return direction switch
@@ -79,13 +58,6 @@ namespace Direction2D
             };
         }
 
-        /// <summary>
-        /// Преобразует значение направления к типу Vector3Int,
-        /// если оно имеет смысл с точки зрения направления в пространстве.
-        /// </summary>
-        /// <returns>Возвращает преобразованное значение типа Vector3Int, если оно имеет смысл с точки зрения
-        /// направления в пространстве; иначе вызывает InvalidCastException.</returns>
-        /// <exception cref="InvalidCastException"></exception>
         public static Vector3Int ToVector3Int(this Direction direction)
         {
             return direction switch
@@ -103,11 +75,6 @@ namespace Direction2D
             };
         }
 
-        /// <summary>
-        /// Проверяет, имеет ли значение смысл с точки зрения направления в пространстве.
-        /// </summary>
-        /// <returns>Возвращает true, если значение имеет смысл с точки зрения направления в пространстве;
-        /// иначе false.</returns>
         public static bool IsValueMakeSence(this Direction direction)
         {
             return  direction == Direction.None ||
