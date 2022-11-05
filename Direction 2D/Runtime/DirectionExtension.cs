@@ -1,12 +1,18 @@
-using System;
 using UnityEngine;
 
 namespace IUP_Toolkits.Direction2D
 {
+    /// <summary>
+    /// Класс, содержащий методы расширения для класса-перечисления, репрезентующего направление 
+    /// в двухмерном пространстве.
+    /// </summary>
     public static class DirectionExtension
     {
-        private const string _meaninglessValue = "Значение не имеет смысла.";
-
+        /// <summary>
+        /// Конвертирует значение направления в UnityEngine.Vector2.
+        /// </summary>
+        /// <returns>Возвращает значение направления, конвертированное в UnityEngine.Vector2.</returns>
+        /// <exception cref="DirectionValueMeaninglessException"></exception>
         public static Vector2 ToVector2(this Direction direction)
         {
             return direction switch
@@ -20,10 +26,15 @@ namespace IUP_Toolkits.Direction2D
                 Direction.Up | Direction.Right      => new Vector2(1, 1),
                 Direction.Down | Direction.Left     => new Vector2(-1, -1),
                 Direction.Down | Direction.Right    => new Vector2(1, -1),
-                _                                   => throw new InvalidCastException(_meaninglessValue)
+                _                                   => throw new DirectionValueMeaninglessException()
             };
         }
 
+        /// <summary>
+        /// Конвертирует значение направления в UnityEngine.Vector2Int.
+        /// </summary>
+        /// <returns>Возвращает значение направления, конвертированное в UnityEngine.Vector2Int.</returns>
+        /// <exception cref="DirectionValueMeaninglessException"></exception>
         public static Vector2Int ToVector2Int(this Direction direction)
         {
             return direction switch
@@ -37,10 +48,15 @@ namespace IUP_Toolkits.Direction2D
                 Direction.Up | Direction.Right      => new Vector2Int(1, 1),
                 Direction.Down | Direction.Left     => new Vector2Int(-1, -1),
                 Direction.Down | Direction.Right    => new Vector2Int(1, -1),
-                _                                   => throw new InvalidCastException(_meaninglessValue)
+                _                                   => throw new DirectionValueMeaninglessException()
             };
         }
 
+        /// <summary>
+        /// Конвертирует значение направления в UnityEngine.Vector3.
+        /// </summary>
+        /// <returns>Возвращает значение направления, конвертированное в UnityEngine.Vector3.</returns>
+        /// <exception cref="DirectionValueMeaninglessException"></exception>
         public static Vector3 ToVector3(this Direction direction)
         {
             return direction switch
@@ -54,10 +70,15 @@ namespace IUP_Toolkits.Direction2D
                 Direction.Up | Direction.Right      => new Vector2(1, 1),
                 Direction.Down | Direction.Left     => new Vector2(-1, -1),
                 Direction.Down | Direction.Right    => new Vector2(1, -1),
-                _                                   => throw new InvalidCastException(_meaninglessValue)
+                _                                   => throw new DirectionValueMeaninglessException()
             };
         }
 
+        /// <summary>
+        /// Конвертирует значение направления в UnityEngine.Vector3Int.
+        /// </summary>
+        /// <returns>Возвращает значение направления, конвертированное в UnityEngine.Vector3Int.</returns>
+        /// <exception cref="DirectionValueMeaninglessException"></exception>
         public static Vector3Int ToVector3Int(this Direction direction)
         {
             return direction switch
@@ -71,10 +92,14 @@ namespace IUP_Toolkits.Direction2D
                 Direction.Up | Direction.Right      => new Vector3Int(1, 1),
                 Direction.Down | Direction.Left     => new Vector3Int(-1, -1),
                 Direction.Down | Direction.Right    => new Vector3Int(1, -1),
-                _                                   => throw new InvalidCastException(_meaninglessValue)
+                _                                   => throw new DirectionValueMeaninglessException()
             };
         }
 
+        /// <summary>
+        /// Проверяет, имеет ли смысл значение направления (содержит ли оно взаимоисключающие флаги).
+        /// </summary>
+        /// <returns>Возвращает true, если значение имеет смысл; иначе false.</returns>
         public static bool IsValueMakeSence(this Direction direction)
         {
             return  direction == Direction.None ||
