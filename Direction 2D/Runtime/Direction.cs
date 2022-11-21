@@ -1,6 +1,6 @@
 using System;
 
-namespace IUP_Toolkits.Direction2D
+namespace IUP.Toolkits.Direction2D
 {
     /// <summary>
     /// Класс-перечисление для репрезентации направления в двухмерном пространстве.

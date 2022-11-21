@@ -1,6 +1,6 @@
 using System;
 
-namespace IUP_Toolkits.Direction2D
+namespace IUP.Toolkits.Direction2D
 {
     /// <summary>
     /// Класс-исключение, сообщающее, что значение направления не имеет смысла (содержит взаимоисключающие флаги).

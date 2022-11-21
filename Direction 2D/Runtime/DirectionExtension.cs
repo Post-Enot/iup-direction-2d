@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace IUP_Toolkits.Direction2D
+namespace IUP.Toolkits.Direction2D
 {
     /// <summary>
     /// Класс, содержащий методы расширения для класса-перечисления, репрезентующего направление 
