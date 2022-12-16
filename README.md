@@ -47,5 +47,5 @@ Unity-пакет, содержащий класс-перечисление дл�
 При попытке преобразовать к структуре вектора значение перечисления направления, не имеющего смысл, будет вызвано исключение 
 **[IUP.Toolkits.Direction2D.DirectionValueMeaninglessException](https://github.com/Post-Enot/direction-2d/blob/main/Direction%202D/Runtime/DirectionValueMeaninglessException.cs#L8)**.
 
-## Принятые решения и пояснения к ним:
+## Принятые решения и пояснения к ним
  * Тип **byte** для перечисления **[IUP.Toolkits.Direction2D.Direction](https://github.com/Post-Enot/direction-2d/blob/main/Direction%202D/Runtime/Direction.cs#L9)** выбран с точки зрения оптимизации.
