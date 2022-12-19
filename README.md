@@ -1,6 +1,6 @@
 Unity-пакет, содержащий класс-перечисление для репрезентации направления в двухмерном пространстве, а также методы расширения, упрощающие работу с ним.
 
-## Как использовать
+# Как использовать
 Перечисление **[IUP.Toolkits.Direction2D.Direction](https://github.com/Post-Enot/direction-2d/blob/main/Direction%202D/Runtime/Direction.cs#L9)** содержит 9 флагов (с учётом 0 флага), соответственно:
 
 0000 - отсутствие направления; (0, 0) в векторном формате.  
@@ -16,14 +16,22 @@ Unity-пакет, содержащий класс-перечисление дл�
 
 При необходимости репрезентации направления необходимо использовать данный класс, а также его методы расширения.
 
-### Наборы флагов без смысла
+## Наборы флагов без смысла
 
 Не у всех сочетаний флагов имеется смысл: например, 
 **1111**. Для проверки, имеет ли значение типа Direction смысл, нужно использовать метод расширения
 **[IUP.Toolkits.Direction2D.Direction.IsValueMakeSence()](https://github.com/Post-Enot/direction-2d/blob/main/Direction%202D/Runtime/DirectionExtension.cs#L103)**: в 
 вслучае, если значение имеет смысл, будет возвращено true, иначе false.
 
-### Исключения
+**Пример:**
+
+```c#
+Direction direction = Direction.Up | Direction.Down;
+bool isValueMakeSence = direction.IsValueMakeSence();
+Debug.Log(isValueMakeSence); // Output: false.
+```
+
+## Исключения
 
 Для исключений, связанных с не имеющими смысла значениемями перечисления направления необходимо использовать исключение 
 **[IUP.Toolkits.Direction2D.DirectionValueMeaninglessException](https://github.com/Post-Enot/direction-2d/blob/main/Direction%202D/Runtime/DirectionValueMeaninglessException.cs#L8)**.
@@ -35,6 +43,22 @@ Unity-пакет, содержащий класс-перечисление дл�
 статические методы, возвращающие перебираемые наборы всех, прямых и диагональных направлений. С помощью флага **includeZeroDirection** возможно задать, должен ли 
 набор содержать отсутствие направления.
 
+**Пример:**
+
+```c#
+foreach (Direction direction in DirectionUtility.DirectDirections(includeZeroDirection: true))
+{
+    Debug.Log(direction);
+}
+/* Output:
+   Direction.None
+   Direction.Up
+   Direction.Down
+   Direction.Left
+   Direction.Right
+*/
+```
+
 ### Преобразование направления в вектор
 
 Преобразование типа перечисления направления в реализованный в Unity3D формат вектора возможно с помощью методов расширения:  
@@ -44,11 +68,28 @@ Unity-пакет, содержащий класс-перечисление дл�
 **[IUP.Toolkits.Direction2D.Direction.ToVector3()](https://github.com/Post-Enot/direction-2d/blob/main/Direction%202D/Runtime/DirectionExtension.cs#L60)** - преобразовывает в структуру **UnityEngine.Vector3**.  
 **[IUP.Toolkits.Direction2D.Direction.ToVector3Int()](https://github.com/Post-Enot/direction-2d/blob/main/Direction%202D/Runtime/DirectionExtension.cs#L82)** - преобразовывает в структуру **UnityEngine.Vector3Int**.
 
+**Пример:**
+
+```c#
+Direction direction = Direction.UpLeft;
+Debug.Log(direction.ToVector2()); // Output: (-1.0f, 1.0f)
+Debug.Log(direction.ToVector2Int()); // Output: (-1, 1)
+Debug.Log(direction.ToVector3()); // Output: (-1.0f, 1.0f, 0.0f)
+Debug.Log(direction.ToVector3Int()); // Output: (-1, 1, 0)
+```
+
 При попытке преобразовать к структуре вектора значение перечисления направления, не имеющего смысл, будет вызвано исключение 
 **[IUP.Toolkits.Direction2D.DirectionValueMeaninglessException](https://github.com/Post-Enot/direction-2d/blob/main/Direction%202D/Runtime/DirectionValueMeaninglessException.cs#L8)**.
 
-## Принятые решения и пояснения к ним
+**Пример:**
+
+```c#
+Direction direction = Direction.Up | Direction.Down;
+Debug.Log(direction.ToVector2()); // Будет вызвано исключение DirectionValueMeaninglessException
+```
+
+# Принятые решения и пояснения к ним
  * Тип **byte** для перечисления **[IUP.Toolkits.Direction2D.Direction](https://github.com/Post-Enot/direction-2d/blob/main/Direction%202D/Runtime/Direction.cs#L9)** выбран с точки зрения оптимизации.
 
-## Контакты
+# Контакты
 По всем вопросам писать в Telegram: https://t.me/ProcyonNihil
