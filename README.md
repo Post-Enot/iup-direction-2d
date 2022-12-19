@@ -36,7 +36,7 @@ Debug.Log(isValueMakeSence); // Output: false.
 Для исключений, связанных с не имеющими смысла значениемями перечисления направления необходимо использовать исключение 
 **[IUP.Toolkits.Direction2D.DirectionValueMeaninglessException](https://github.com/Post-Enot/direction-2d/blob/main/Direction%202D/Runtime/DirectionValueMeaninglessException.cs#L8)**.
 
-### Перебор наборов направлений
+## Перебор наборов направлений
 
 Часто в прикладных задачах необходимо перебрать в цикле все направления по определённому критерию: например, только прямые или только диагональные направления. 
 Класс **[IUP.Toolkits.Direction2D.DirectionUtility](https://github.com/Post-Enot/direction-2d/blob/main/Direction%202D/Runtime/DirectionUtility.cs#L8)** предоставляет 
@@ -59,7 +59,7 @@ foreach (Direction direction in DirectionUtility.DirectDirections(includeZeroDir
 */
 ```
 
-### Преобразование направления в вектор
+## Преобразование направления в вектор
 
 Преобразование типа перечисления направления в реализованный в Unity3D формат вектора возможно с помощью методов расширения:  
 
